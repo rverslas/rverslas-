@@ -3,122 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rverslas.lt - Reklamuok savo verslą</title>
+  <title>Rverslas.lt – Verslo reklamos platforma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+    }
+    body {
+      /* Fono paveikslėlis */
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    /* Tamsus overlay sluoksnis */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 0;
     }
     header {
-      background: #005bbb;
-      color: white;
-      padding: 20px;
+      width: 100%;
+      max-width: 960px;
+      padding: 30px 0;
       text-align: center;
+      z-index: 1;
+      position: relative;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
     }
     header h1 {
-      margin: 0;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #4fc3f7;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .form-section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0 20px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      background: #0077cc;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #005fa3;
-    }
-    .ads-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .ad-card {
-      background: white;
-      padding: 15px;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-    .ad-card h4 {
-      margin-top: 0;
-    }
-    .ad-card a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Rverslas.lt</h1>
-    <p>Nemokama verslo reklamos platforma</p>
-  </header>
-  <div class="container">
-    <section class="form-section">
-      <h2>Įkelk savo verslą</h2>
-      <form id="adForm">
-        <label>Verslo pavadinimas:</label>
-        <input type="text" id="name" required />
-
-        <label>Trumpas aprašymas:</label>
-        <textarea id="description" required></textarea>
-
-        <label>Svetainės nuoroda:</label>
-        <input type="url" id="link" required />
-
-        <button type="submit">Pateikti skelbimą</button>
-      </form>
-    </section>
-
-    <section>
-      <h2>Rodyti verslai</h2>
-      <div id="ads-container" class="ads-grid"></div>
-    </section>
-  </div>
-
-  <script>
-    const form = document.getElementById('adForm');
-    const adsContainer = document.getElementById('ads-container');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const description = document.getElementById('description').value;
-      const link = document.getElementById('link').value;
-
-      const card = document.createElement('div');
-      card.className = 'ad-card';
-      card.innerHTML = \`
-        <h4>\${name}</h4>
-        <p>\${description}</p>
-        <a href="\${link}" target="_blank">Apsilankyti</a>
-      \`;
-
-      adsContainer.prepend(card);
-      form.reset();
-    });
-  </script>
-</body>
-</html>
+    main {
+      background: rgba(0
